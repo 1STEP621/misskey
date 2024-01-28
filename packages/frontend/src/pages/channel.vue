@@ -266,7 +266,7 @@ definePageMetadata(computed(() => channel.value ? {
 
 <style lang="scss" module>
 .main {
-	min-height: calc(100cqh - (var(--stickyTop, 0px) + var(--stickyBottom, 0px)));
+	min-height: calc(100cqh - var(--stickyTop, 0px));
 }
 
 .footer {

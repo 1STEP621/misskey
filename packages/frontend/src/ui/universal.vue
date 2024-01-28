@@ -216,23 +216,6 @@ function top() {
 	});
 }
 
-const navFooterHeight = ref(0);
-provide<Ref<number>>(CURRENT_STICKY_BOTTOM, navFooterHeight);
-
-watch(navFooter, () => {
-	if (navFooter.value) {
-		navFooterHeight.value = navFooter.value.offsetHeight;
-		document.body.style.setProperty('--stickyBottom', `${navFooterHeight.value}px`);
-		document.body.style.setProperty('--minBottomSpacing', 'var(--minBottomSpacingMobile)');
-	} else {
-		navFooterHeight.value = 0;
-		document.body.style.setProperty('--stickyBottom', '0px');
-		document.body.style.setProperty('--minBottomSpacing', '0px');
-	}
-}, {
-	immediate: true,
-});
-
 useScrollPositionManager(() => contents.value.rootEl, mainRouter);
 </script>
 
